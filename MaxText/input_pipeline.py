@@ -169,7 +169,8 @@ def get_datasets(
 ):
   """Load and return dataset of batched examples for use during training."""
   # Training dataset.
-  train_ds_builder = tfds.builder(config.dataset_name)
+  # train_ds_builder = tfds.builder(config.dataset_name)
+  train_ds_builder = tfds.builder_from_directory(config.dataset_name)
   # train_data = get_raw_dataset(train_ds_builder, 'train')
   train_ds = train_ds_builder.as_dataset(split='train',
                                            read_config = read_config,
@@ -180,7 +181,8 @@ def get_datasets(
 
   # Evaluation dataset.
   if config.eval_dataset_name:
-    eval_ds_builder = tfds.builder(config.eval_dataset_name)
+    # eval_ds_builder = tfds.builder(config.eval_dataset_name)
+    eval_ds_builder = tfds.builder_from_directory(config.eval_dataset_name)
   else:
     eval_ds_builder = train_ds_builder
   # eval_data = get_raw_dataset(eval_ds_builder, config.eval_split)

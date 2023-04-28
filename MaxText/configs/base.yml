@@ -77,8 +77,16 @@ ici_tensor_parallelism: 1
 dataset_path: "gs://maxtext-dataset/"
 vocab_size: 32_768 # powers of 2 for sharding
 vocab_relative_path: "vocabs"  # Assumes we're allowed
-dataset_name: 'c4/en:3.0.1'
-eval_dataset_name: 'c4/en:3.0.1'
+dataset_name: [
+  'gs://maxtext-dataset/arxiv',
+  'gs://maxtext-dataset/books',
+  'gs://maxtext-dataset/c4/en:3.0.1',
+  ]
+eval_dataset_name: [
+  'gs://maxtext-dataset/arxiv',
+  'gs://maxtext-dataset/books',
+  'gs://maxtext-dataset/c4/en:3.0.1',
+  ]
 eval_split: 'validation'
 per_device_batch_size: 32
 eval_per_device_batch_size: 0
